@@ -1,11 +1,16 @@
-.TH LV2BENCH 1 "08 Jul 2022"
+.TH LV2BENCH 1 "08 Aug 2022"
 
 .SH NAME
-.B lv2bench \- benchmark all installed and supported LV2 plugins
+.B lv2bench \- benchmark LV2 plugins
 .SH SYNOPSIS
-.B lv2bench [OPTIONS] [PLUGIN_URI]
+.B lv2bench
+[\fI\,OPTION\/\fR]... [\fI\,PLUGIN_URI\/\fR]
 
 .SH OPTIONS
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Display version information and exit
+
 .TP
 \fB\-b BLOCK_SIZE\fR
 Block size in audio frames
@@ -21,10 +26,6 @@ Display help and exit
 .TP
 \fB\-n FRAMES\fR
 Total number of audio frames to process
-
-.TP
-\fB\-\-version\fR
-Display version information and exit
 
 .SH "SEE ALSO"
 .BR lv2ls(1)

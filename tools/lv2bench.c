@@ -1,5 +1,5 @@
 /*
-  Copyright 2012-2019 David Robillard <d@drobilla.net>
+  Copyright 2012-2022 David Robillard <d@drobilla.net>
 
   Permission to use, copy, modify, and/or distribute this software for any
   purpose with or without fee is hereby granted, provided that the above
@@ -46,7 +46,7 @@ static void
 print_version(void)
 {
   printf("lv2bench (lilv) " LILV_VERSION "\n"
-         "Copyright 2012-2021 David Robillard <d@drobilla.net>\n"
+         "Copyright 2012-2022 David Robillard <d@drobilla.net>\n"
          "License: <http://www.opensource.org/licenses/isc-license>\n"
          "This is free software: you are free to change and redistribute it.\n"
          "There is NO WARRANTY, to the extent permitted by law.\n");
@@ -55,14 +55,14 @@ print_version(void)
 static void
 print_usage(void)
 {
-  printf("lv2bench - Benchmark all installed and supported LV2 plugins.\n");
-  printf("Usage: lv2bench [OPTIONS] [PLUGIN_URI]\n");
-  printf("\n");
-  printf("  -b BLOCK_SIZE  Specify block size, in audio frames.\n");
-  printf("  -f, --full     Full plottable output.\n");
-  printf("  -h, --help     Display this help and exit.\n");
-  printf("  -n FRAMES      Total number of audio frames to process\n");
-  printf("  --version      Display version information and exit\n");
+  printf("Usage: lv2bench [OPTION]... [PLUGIN_URI]\n"
+         "Benchmark LV2 plugins.\n"
+         "\n"
+         "  -V, --version  Display version information and exit.\n"
+         "  -b BLOCK_SIZE  Block size in audio frames.\n"
+         "  -f             Full plottable output.\n"
+         "  -h, --help     Display this help and exit.\n"
+         "  -n FRAMES      Total number of frames to process.\n");
 }
 
 static double
@@ -214,13 +214,13 @@ main(int argc, char** argv)
 
   int a = 1;
   for (; a < argc; ++a) {
-    if (!strcmp(argv[a], "--version")) {
-      print_version();
+    if (!strcmp(argv[1], "-h") || !strcmp(argv[a], "--help")) {
+      print_usage();
       return 0;
     }
 
-    if (!strcmp(argv[a], "--help")) {
-      print_usage();
+    if (!strcmp(argv[a], "-V") || !strcmp(argv[a], "--version")) {
+      print_version();
       return 0;
     }
 
