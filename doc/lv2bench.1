@@ -23,6 +23,12 @@ Display help and exit
 \fB\-n FRAMES\fR
 Total number of audio frames to process
 
+.TP
+\fB\-s BUFFERS\fR
+Skip the given number of buffers before recording timings.
+These buffers are considered pre-roll and don't count towards the total given by \fB\-n
+.
+
 .SH "SEE ALSO"
 .BR lv2ls(1)
 
