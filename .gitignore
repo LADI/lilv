@@ -1,7 +1,10 @@
 # Copyright 2018-2022 David Robillard <d@drobilla.net>
+# Copyright 2023 Nedko Arnaudov
 # SPDX-License-Identifier: 0BSD OR ISC
 
 .meson-subproject-wrap-hash.txt
+/.waf*
+/.lock-waf*
 __pycache__
 build/**
 subprojects/packagecache/
